@@ -25,3 +25,17 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.gradient-text {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(278deg, #b066f3, #c20dc5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
