@@ -78,13 +78,15 @@ const BarCard = ({
             {data?.address}
           </p>
           <div className="flex items-center ">
-            <StarRatings
-              numberOfStars={5}
-              rating={parseFloat(data?.rating)}
-              starRatedColor="gold"
-              starDimension="20"
-              starSpacing="0"
-            />
+            {data && data.rating && (
+              <StarRatings
+                numberOfStars={5}
+                rating={parseFloat(data.rating)}
+                starRatedColor="gold"
+                starDimension="20"
+                starSpacing="2px"
+              />
+            )}
             <p className="ml-2">{`(${data?.user_ratings_total})`}</p>
           </div>
         </div>
