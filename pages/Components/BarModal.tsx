@@ -7,7 +7,7 @@ interface BarModal {
   name: string;
   address: string;
   user_ratings_total: number;
-  rating: number;
+  rating: string;
   website: string;
   opening_hours: string;
   formatted_phone_number: string;
@@ -40,10 +40,10 @@ const BarModal: React.FC<BarModalProps> = ({
   );
   const openingHours: string[] | undefined =
     bar && Object.values(JSON.parse(bar.opening_hours));
-  console.log(bar, openingHours);
+
   return (
     <article
-      className={`bg-white absolute right-2 bottom-12 h-fit w-1/5 p-4 text-[#000000] rounded-lg transition-all duration-300 ${
+      className={`bg-white fixed right-2 bottom-12 h-fit w-1/5 p-4 text-[#000000] rounded-lg transition-transform transform duration-300 ${
         show
           ? "translate-x-0 visible opacity-100"
           : "translate-x-[150%] invisible opacity-0 pointer-events-none"
@@ -66,7 +66,7 @@ const BarModal: React.FC<BarModalProps> = ({
             <StarRatings
               name="starRating"
               numberOfStars={5}
-              rating={bar.rating}
+              rating={parseFloat(bar.rating)}
               starDimension="25"
               starSpacing="0"
               starRatedColor="#B066F3"

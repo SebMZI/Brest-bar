@@ -9,7 +9,7 @@ interface Bar {
   name: string;
   address: string;
   user_ratings_total: number;
-  rating: number;
+  rating: string;
   website: string;
   opening_hours: string;
   formatted_phone_number: string;
@@ -31,6 +31,7 @@ const BarCard = ({
   setShow: any;
 }) => {
   const [km, setKm] = useState<number | null>(null);
+  const [loc, setLoc] = useState<boolean>(false);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -60,6 +61,8 @@ const BarCard = ({
     getLocation();
   }, []);
 
+  console.log(navigator.geolocation);
+
   return (
     <article className="p-6 text-white flex flex-col bg-[#2c2c2c] rounded-lg gap-2 w-full">
       <div className="flex justify-between items-center">
@@ -68,8 +71,9 @@ const BarCard = ({
           <h3 className="text-2xl font-semibold">{data?.name}</h3>
 
           <p className="text-ascent truncate">
-            🏃‍♂️
-            <span className="font-bold uppercase">a {km} km</span> -{" "}
+            <span className="font-bold uppercase">
+              {km ? `🏃‍♂️ A ${km} km - ` : null}
+            </span>
             {data?.address}
           </p>
         </div>

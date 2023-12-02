@@ -17,7 +17,7 @@ interface Bar {
   name: string;
   address: string;
   user_ratings_total: number;
-  rating: number;
+  rating: string;
   website: string;
   opening_hours: string;
   formatted_phone_number: string;
@@ -124,14 +124,14 @@ export default function Home() {
             </div>
           </section>
           <Map data={data} location={barCoordinates} zoom={zoom} />
-          {data && show ? (
+          {data && (
             <BarModal
               data={data}
               setShow={setShow}
               show={show}
               barCoordinates={barCoordinates}
             />
-          ) : null}
+          )}
         </main>
       </div>
     </>
