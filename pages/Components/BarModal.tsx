@@ -24,12 +24,14 @@ interface BarModalProps {
   data: BarModal[]; // Change to array type
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   barCoordinates: [number, number];
+  show: boolean;
 }
 
 const BarModal: React.FC<BarModalProps> = ({
   data,
   setShow,
   barCoordinates,
+  show,
 }) => {
   const bar = data.find(
     (it) =>
@@ -39,7 +41,13 @@ const BarModal: React.FC<BarModalProps> = ({
   const openingHours = bar && Object.values(JSON.parse(bar.opening_hours));
   console.log(bar, openingHours);
   return (
-    <article className="bg-white absolute right-2 bottom-12 h-fit w-1/5 p-4 text-[#000000] rounded-lg">
+    <article
+      className={`bg-white absolute right-2 bottom-12 h-fit w-1/5 p-4 text-[#000000] rounded-lg transition-all duration-300 ${
+        show
+          ? "translate-x-0 visible opacity-100"
+          : "translate-x-[150%] invisible opacity-0 pointer-events-none"
+      }`}
+    >
       <div className="flex justify-between items-center">
         <p>Informations sur le Bar</p>
         <span
@@ -53,7 +61,7 @@ const BarModal: React.FC<BarModalProps> = ({
         <div className="py-4">
           <h2 className="text-2xl font-semibold">{bar.name}</h2>
           <p className="font-thin">{bar.address}</p>
-          <div>
+          <div className="flex flex-row items-center">
             <StarRatings
               name="starRating"
               numberOfStars={5}
@@ -62,7 +70,7 @@ const BarModal: React.FC<BarModalProps> = ({
               starSpacing="0"
               starRatedColor="#B066F3"
             />
-            <p>{}</p>
+            <p className="ml-2">{`(${bar.user_ratings_total})`}</p>
           </div>
           <div className="flex flex-row justify-around my-6">
             <Link href={`${bar.website}`} target="_blank">

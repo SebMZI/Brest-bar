@@ -128,6 +128,7 @@ export default function Home() {
             <BarModal
               data={data}
               setShow={setShow}
+              show={show}
               barCoordinates={barCoordinates}
             />
           ) : null}
