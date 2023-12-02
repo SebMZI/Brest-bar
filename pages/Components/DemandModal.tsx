@@ -9,10 +9,10 @@ const DemandModal: React.FC<DemandModalProps> = ({ setShow }) => {
       onClick={() => setShow(false)}
     >
       <div className="relative z-20 rounded-xl bg-primary p-4 text-white">
-        <div className="flex items-center gap-6 justify-between">
-          <p className="text-2xl">Demand</p>
+        <div className="flex items-center gap-4 justify-between">
+          <p className="text-xl">Demande</p>
           <button
-            className="text-2xl text-ascent"
+            className="text-xl text-ascent"
             onClick={() => setShow(false)}
           >
             X
