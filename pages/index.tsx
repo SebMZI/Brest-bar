@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-col gap-6 items-center h-full">
-                {arrayToShow ? (
+                {arrayToShow && arrayToShow.length > 0 ? (
                   arrayToShow.map((bar: Bar, index: number) => (
                     <BarCard
                       key={index}
