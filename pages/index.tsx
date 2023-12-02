@@ -74,7 +74,42 @@ export default function Home() {
           href="https://unpkg.com/maplibre-gl@%5E2.4/dist/maplibre-gl.css"
           rel="stylesheet"
         />
-        <title>Brest bar!</title>
+        <title>Brest Bar - Trouver un bar rapidement !</title>
+        <meta name="title" content="Brest Bar - Trouver un bar rapidement !" />
+        <meta
+          name="description"
+          content="Brest bar vous permet de trouver en un rien de temps tout les bars de Brest ouverts et opérationnels. Vous pouvez les trier en fonction de la note générale."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://projet-bar.vercel.app/" />
+        <meta
+          property="og:title"
+          content="Brest Bar - Trouver un bar rapidement !"
+        />
+        <meta
+          property="og:description"
+          content="Brest bar vous permet de trouver en un rien de temps tout les bars de Brest ouverts et opérationnels. Vous pouvez les trier en fonction de la note générale."
+        />
+        <meta
+          property="og:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://projet-bar.vercel.app/" />
+        <meta
+          property="twitter:title"
+          content="Brest Bar - Trouver un bar rapidement !"
+        />
+        <meta
+          property="twitter:description"
+          content="Brest bar vous permet de trouver en un rien de temps tout les bars de Brest ouverts et opérationnels. Vous pouvez les trier en fonction de la note générale."
+        />
+        <meta
+          property="twitter:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
       </Head>
       <div className="flex max-h-screen min-h-screen flex-col overflow-hidden">
         <Navbar />
