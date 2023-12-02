@@ -33,7 +33,7 @@ const BarModal: React.FC<BarModalProps> = ({
   barCoordinates,
   show,
 }) => {
-  const bar = data.find(
+  const bar = data?.find(
     (it) =>
       it.location.coordinates[0] === barCoordinates[0] &&
       it.location.coordinates[1] === barCoordinates[1]

@@ -65,12 +65,12 @@ const BarCard = ({
       <div className="flex justify-between items-center">
         <div className="w-4/5 flex flex-col">
           <p className="font-bold text-ascent uppercase">Bar</p>
-          <h3 className="text-2xl font-semibold">{data.name}</h3>
+          <h3 className="text-2xl font-semibold">{data?.name}</h3>
 
           <p className="text-ascent truncate">
             🏃‍♂️
             <span className="font-bold uppercase">a {km} km</span> -{" "}
-            {data.address}
+            {data?.address}
           </p>
         </div>
         <button
