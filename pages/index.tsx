@@ -73,7 +73,7 @@ export default function Home() {
           <section className="basis-1/3 bg-primary custom-scrollbar overflow-y-scroll  min-h-full z-30 relative">
             <div className="p-4">
               <h1 className=" text-4xl font-bold text-white">
-                Trouver le bar qu'il vous faut{" "}
+                Trouver le bar qu&apos;il vous faut{" "}
                 <span className="bg-gradient-to-r from-gradient to-ascent bg-clip-text text-transparent ">
                   selon votre humeur
                 </span>

@@ -81,7 +81,7 @@ const BarModal: React.FC<BarModalProps> = ({
             </Link>
           </div>
           <div>
-            <h3 className="font-semibold">Heures d'ouverture :</h3>
+            <h3 className="font-semibold">Heures d&apos;ouverture :</h3>
             {openingHours &&
               openingHours.map((hour: string, index: number) => (
                 <p key={index} className="px-2">
