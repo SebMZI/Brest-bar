@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import StarRating from "react-star-rating-component";
+import StarRatings from "react-star-ratings";
 import globe from "@/pages/assets/website.svg";
 import phone from "@/pages/assets/phone.svg";
 interface BarModal {
@@ -53,11 +53,14 @@ const BarModal: React.FC<BarModalProps> = ({
         <div className="py-4">
           <h2 className="text-2xl font-semibold">{bar.name}</h2>
           <p className="font-thin">{bar.address}</p>
-          <div className="text-2xl">
-            <StarRating
+          <div>
+            <StarRatings
               name="starRating"
-              starCount={5}
-              value={parseFloat(bar.rating)}
+              numberOfStars={5}
+              rating={parseFloat(bar.rating)}
+              starDimension="25"
+              starSpacing="0"
+              starRatedColor="#B066F3"
             />
             <p>{}</p>
           </div>
