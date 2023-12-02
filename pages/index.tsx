@@ -6,17 +6,21 @@ import Head from "next/head";
 import BarTypeCard from "./Components/BarTypeCard";
 import BarCard from "./Components/BarCard";
 import { useState, useEffect } from "react";
+import BarModal from "./Components/BarModal";
 const inter = Inter({ subsets: ["latin"] });
 
 interface Bar {
-  name: string;
   location: {
     coordinates: [number, number];
   };
   status: string;
+  name: string;
   address: string;
-
-  // Add other properties if necessary
+  user_ratings_total: number;
+  rating: number;
+  website: string;
+  opening_hours: string;
+  formatted_phone_number: string;
 }
 
 export default function Home() {
@@ -25,6 +29,8 @@ export default function Home() {
     -4.486076, 48.390394,
   ]);
   const [zoom, setZoom] = useState<number>(9);
+  const [slice, setSlice] = useState<number>(8);
+  const [show, setShow] = useState<boolean>(false);
 
   const fetchMapData = async (): Promise<Bar[]> => {
     try {
@@ -51,6 +57,7 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const arrayToShow = data && data.slice(0, slice);
   return (
     <>
       <Head>
@@ -92,26 +99,38 @@ export default function Home() {
                 </button>
               </div>
               <div className="flex flex-col gap-6 items-center">
-                {data ? (
-                  data.map((bar: Bar, index: number) => (
+                {arrayToShow ? (
+                  arrayToShow.map((bar: Bar, index: number) => (
                     <BarCard
                       key={index}
                       data={bar}
                       setBarCoordinates={setBarCoordinates}
                       setZoom={setZoom}
+                      setShow={setShow}
                     />
                   ))
                 ) : (
                   <p className="text-white">Pas de bar disponible...</p>
                 )}
-
-                <button className="p-4 bg-[#2c2c2c] w-20 rounded-lg ">
-                  Plus...
-                </button>
+                {data && slice >= data.length - 1 ? null : (
+                  <button
+                    className="p-4 bg-[#2c2c2c] w-20 rounded-lg "
+                    onClick={() => setSlice(slice + 8)}
+                  >
+                    Plus
+                  </button>
+                )}
               </div>
             </div>
           </section>
           <Map data={data} location={barCoordinates} zoom={zoom} />
+          {data && show ? (
+            <BarModal
+              data={data}
+              setShow={setShow}
+              barCoordinates={barCoordinates}
+            />
+          ) : null}
         </main>
       </div>
     </>

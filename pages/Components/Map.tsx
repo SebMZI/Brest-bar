@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
+import { features } from "process";
 
 interface Bar {
   name: string;
@@ -125,7 +126,7 @@ const Map = ({
               return;
             }
 
-            const clusterId = features[0].properties.cluster_id;
+            const clusterId = features[0].properties?.cluster_id;
             map
               .getSource("bars")
               ?.getClusterExpansionZoom(clusterId, (err, zoom) => {
@@ -139,6 +140,10 @@ const Map = ({
           });
           map.dragRotate.disable();
           setMap(map);
+        });
+        map.on("click", "unclustered-point", (e) => {
+          console.log(e);
+          console.log(e.lngLat.lng, e.lngLat.lat);
         });
       }
 

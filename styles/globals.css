@@ -33,12 +33,12 @@ body {
 }
 
 .custom-scrollbar {
-  scrollbar-width: 10px;
+  scrollbar-width: 8px;
   scrollbar-color: #b066f3;
 }
 
 .custom-scrollbar::-webkit-scrollbar{
-  width: 10px;
+  width: 8px;
 }
 .custom-scrollbar::-webkit-scrollbar-track{background: #2c2c2c;}
 .custom-scrollbar::-webkit-scrollbar-thumb{background: #b066f3}

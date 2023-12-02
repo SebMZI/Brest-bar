@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import BarModal from "./BarModal";
 
 interface Bar {
-  name: string;
   location: {
     coordinates: [number, number];
   };
   status: string;
+  name: string;
   address: string;
+  user_ratings_total: number;
+  rating: number;
+  website: string;
+  opening_hours: string;
+  formatted_phone_number: string;
 }
 
 interface Coordinates {
@@ -17,10 +23,12 @@ const BarCard = ({
   data,
   setBarCoordinates,
   setZoom,
+  setShow,
 }: {
   data: Bar;
   setBarCoordinates: any;
   setZoom: any;
+  setShow: any;
 }) => {
   const [km, setKm] = useState<number | null>(null);
 
@@ -61,13 +69,14 @@ const BarCard = ({
 
           <p className="text-ascent truncate">
             🏃‍♂️
-            <span className="font-bold uppercase">{km} km</span> -{" "}
+            <span className="font-bold uppercase">a {km} km</span> -{" "}
             {data.address}
           </p>
         </div>
         <button
           className="aspect-square rounded-full bg-ascent p-4"
           onClick={() => {
+            setShow(true);
             setZoom(15);
             setBarCoordinates([
               data.location.coordinates[0],
