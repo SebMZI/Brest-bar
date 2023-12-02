@@ -66,7 +66,11 @@ const Map = ({
             clusterRadius: 50,
           });
 
-          new mapboxgl.Marker().setLngLat(location).addTo(map);
+          {
+            JSON.stringify(location) === JSON.stringify([-4.486076, 48.390394])
+              ? null
+              : new mapboxgl.Marker().setLngLat(location).addTo(map);
+          }
 
           map.addLayer({
             id: "clusters",
