@@ -34,14 +34,14 @@ body {
 
 .custom-scrollbar {
   scrollbar-width: 8px;
-  scrollbar-color: #b066f3;
+  scrollbar-color: #BAA2CD;
 }
 
 .custom-scrollbar::-webkit-scrollbar{
   width: 8px;
 }
 .custom-scrollbar::-webkit-scrollbar-track{background: #2c2c2c;}
-.custom-scrollbar::-webkit-scrollbar-thumb{background: #b066f3}
+.custom-scrollbar::-webkit-scrollbar-thumb{background: #BAA2CD}
 
 
 
@@ -53,7 +53,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(278deg, #b066f3, #c20dc5);
+  background: linear-gradient(278deg, #BAA2CD, #c20dc5);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -69,7 +69,7 @@ const BarModal: React.FC<BarModalProps> = ({
               rating={parseFloat(bar.rating)}
               starDimension="25"
               starSpacing="0"
-              starRatedColor="#B066F3"
+              starRatedColor="#BAA2CD"
             />
             <p className="ml-2">{`(${bar.user_ratings_total})`}</p>
           </div>

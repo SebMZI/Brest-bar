@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       primary: "#201F23",
-      ascent: "#B066F3",
+      ascent: "#BAA2CD",
       gradient: "#c20dc5",
       white: "#FFFFFF",
       transparent: "transparent",
