@@ -110,6 +110,20 @@ export default function Home() {
           property="twitter:image"
           content="https://metatags.io/images/meta-tags.png"
         />
+       <script type="application/ld+json">
+          {
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            "name": "Brest Bar",
+            "url": "https://projet-bar.vercel.app/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "{search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        </script>
+
       </Head>
       <div className="flex max-h-screen min-h-screen flex-col overflow-hidden">
         <Navbar />
