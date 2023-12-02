@@ -66,6 +66,8 @@ const Map = ({
             clusterRadius: 50,
           });
 
+          new mapboxgl.Marker().setLngLat(location).addTo(map);
+
           map.addLayer({
             id: "clusters",
             type: "circle",
