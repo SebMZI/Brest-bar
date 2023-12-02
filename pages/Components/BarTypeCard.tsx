@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 
+// ... (other imports)
+
 const BarTypeCard = ({ type, icon }: { type: string; icon: string }) => {
   const [isSelected, setIsSelected] = useState(false);
 
-  const handleColorText = () => {
+  const handleColorText = (
+    event: React.MouseEvent<HTMLDivElement | HTMLParagraphElement>
+  ) => {
     setIsSelected(!isSelected);
+
+    event.stopPropagation();
   };
 
   useEffect(() => {
@@ -14,7 +20,7 @@ const BarTypeCard = ({ type, icon }: { type: string; icon: string }) => {
     });
 
     if (isSelected) {
-      const currentTypebar = document.getElementById(type); // Assuming type is a unique identifier
+      const currentTypebar = document.getElementById(type);
       if (currentTypebar) {
         currentTypebar.classList.add("text-ascent");
       }
@@ -28,10 +34,7 @@ const BarTypeCard = ({ type, icon }: { type: string; icon: string }) => {
       }`}
       onClick={handleColorText}
     >
-      <div
-        className="flex items-center justify-center text-4xl aspect-square bg-[#2c2c2c] rounded-lg w-full"
-        onClick={handleColorText}
-      >
+      <div className="flex items-center justify-center text-4xl aspect-square bg-[#2c2c2c] rounded-lg w-full">
         {icon}
       </div>
       <p

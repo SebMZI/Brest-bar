@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BarModal from "./BarModal";
+import StarRatings from "react-star-ratings";
 
 interface Bar {
   location: {
@@ -74,6 +75,16 @@ const BarCard = ({
             </span>
             {data?.address}
           </p>
+          <div className="flex items-center ">
+            <StarRatings
+              numberOfStars={5}
+              rating={parseFloat(data?.rating)}
+              starRatedColor="gold"
+              starDimension="20"
+              starSpacing="2px"
+            />
+            <p className="ml-2">{`(${data?.user_ratings_total})`}</p>
+          </div>
         </div>
         <button
           className="aspect-square rounded-full bg-ascent p-4"

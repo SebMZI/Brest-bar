@@ -62,7 +62,7 @@ const BarModal: React.FC<BarModalProps> = ({
         <div className="py-4">
           <h2 className="text-2xl font-semibold">{bar.name}</h2>
           <p className="font-thin">{bar.address}</p>
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center mt-2">
             <StarRatings
               name="starRating"
               numberOfStars={5}
