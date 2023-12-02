@@ -139,6 +139,9 @@ export default function Home() {
               <div className="flex justify-between items-center  font-semibold">
                 <h2 className="text-2xl ">Explorer</h2>
                 <div>
+                  <label htmlFor="rating" className="mr-2">
+                    Rating
+                  </label>
                   <select
                     name="rating"
                     id="rating"
