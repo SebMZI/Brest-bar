@@ -57,10 +57,10 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setNbStars(e.target.value);
-    setSlice(8);
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setNbStars(e.target.value);
+  //   setSlice(8);
+  // };
 
   const arrayFiltered =
     data && data.filter((it) => parseInt(it.rating) > parseInt(nbStars));
