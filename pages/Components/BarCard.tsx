@@ -61,8 +61,6 @@ const BarCard = ({
     getLocation();
   }, []);
 
-  console.log(navigator.geolocation);
-
   return (
     <article className="p-6 text-white flex flex-col bg-[#2c2c2c] rounded-lg gap-2 w-full">
       <div className="flex justify-between items-center">
