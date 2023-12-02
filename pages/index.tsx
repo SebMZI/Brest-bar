@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import Navbar from "./Components/Navbar";
 import Map from "./Components/Map";
@@ -7,7 +6,6 @@ import BarTypeCard from "./Components/BarTypeCard";
 import BarCard from "./Components/BarCard";
 import { useState, useEffect } from "react";
 import BarModal from "./Components/BarModal";
-import { FaStar } from "react-icons/fa";
 const inter = Inter({ subsets: ["latin"] });
 
 interface Bar {

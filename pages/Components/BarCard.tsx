@@ -62,6 +62,8 @@ const BarCard = ({
     getLocation();
   }, []);
 
+  console.log(parseFloat(data?.rating));
+
   return (
     <article className="p-6 text-white flex flex-col bg-[#2c2c2c] rounded-lg gap-2 w-full">
       <div className="flex justify-between items-center">
@@ -81,7 +83,7 @@ const BarCard = ({
               rating={parseFloat(data?.rating)}
               starRatedColor="gold"
               starDimension="20"
-              starSpacing="2px"
+              starSpacing="0"
             />
             <p className="ml-2">{`(${data?.user_ratings_total})`}</p>
           </div>
