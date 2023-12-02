@@ -57,10 +57,10 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setNbStars(e.target.value);
-  //   setSlice(8);
-  // };
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNbStars(e.target.value);
+    setSlice(8);
+  };
 
   const arrayFiltered =
     data && data.filter((it) => parseInt(it.rating) > parseInt(nbStars));
@@ -108,7 +108,7 @@ export default function Home() {
                     name="rating"
                     id="rating"
                     className="mr-6 px-4 py-2 rounded-lg text-[#000000]"
-                    onChange={(e) => setNbStars(e.target.value)}
+                    onChange={(e) => handleChange(e)}
                   >
                     <option value="1">1+ &#9733;</option>
                     <option value="2">2+ &#9733;&#9733;</option>
