@@ -24,7 +24,7 @@ interface Bar {
 }
 
 export default function Home() {
-  const [data, setData] = useState<Bar[] | undefined>(undefined);
+  const [data, setData] = useState<Bar[]>();
   const [barCoordinates, setBarCoordinates] = useState<[number, number]>([
     -4.486076, 48.390394,
   ]);

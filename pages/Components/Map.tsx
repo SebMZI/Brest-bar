@@ -117,26 +117,40 @@ const Map = ({
               "circle-stroke-color": "#fff",
             },
           });
-          map.on("click", "clusters", (e) => {
+          map.on("click", "clusters", (e: mapboxgl.MapLayerMouseEvent) => {
             const features = map.queryRenderedFeatures(e.point, {
               layers: ["clusters"],
-            });
+            }) as mapboxgl.MapboxGeoJSONFeature[];
 
-            if (!features || features.length === 0) {
+            const clusterId = features[0].properties?.cluster_id;
+
+            // Assurez-vous que clusterId est défini avant de continuer
+            if (clusterId === undefined) {
               return;
             }
 
-            const clusterId = features[0].properties?.cluster_id;
-            map
-              .getSource("bars")
-              ?.getClusterExpansionZoom(clusterId, (err, zoom) => {
-                if (err) return;
-
-                map.easeTo({
-                  center: features[0].geometry.coordinates as [number, number],
-                  zoom: zoom as number,
-                });
-              });
+            // Ease the camera to the next cluster expansion
+            const source = map.getSource("bars") as mapboxgl.GeoJSONSource;
+            source.getClusterExpansionZoom(
+              clusterId,
+              (err: any, zoom: number) => {
+                if (!err) {
+                  const geometry = features[0].geometry;
+                  if (geometry.type === "Point") {
+                    const pointCoordinates = (geometry as GeoJSON.Point)
+                      .coordinates;
+                    // Maintenant, vous pouvez utiliser pointCoordinates en toute sécurité
+                    map.easeTo({
+                      center: pointCoordinates as [number, number],
+                      zoom,
+                    });
+                  } else {
+                    // Gérez le cas où la géométrie n'est pas un Point
+                    console.error("La géométrie n'est pas un Point.");
+                  }
+                }
+              }
+            );
           });
           map.dragRotate.disable();
           setMap(map);
