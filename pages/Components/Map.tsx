@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
 const Map = () => {
@@ -10,6 +10,18 @@ const Map = () => {
     status: string;
     // Add other properties if necessary
   }
+
+  interface features {
+    type: string;
+    geometry: {
+      type: string;
+      coordinates: [number, number];
+    };
+    properties: {
+      name: string;
+    };
+  }
+  const [map, setMap] = useState<mapboxgl.Map | null>(null);
 
   const fetchMapData = async (): Promise<Bar[]> => {
     try {
@@ -72,9 +84,9 @@ const Map = () => {
               ["get", "point_count"],
               "#BF84F5",
               100,
-              "#BF84F5",
+              "#8C51C2",
               750,
-              "#BF84F5",
+              "#8C51C2",
             ],
             "circle-radius": [
               "step",
@@ -112,6 +124,28 @@ const Map = () => {
             "circle-stroke-color": "#fff",
           },
         });
+        map.on("click", "clusters", (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+          });
+
+          if (!features || features.length === 0) {
+            return;
+          }
+
+          const clusterId = features[0].properties.cluster_id;
+          map
+            .getSource("bars")
+            ?.getClusterExpansionZoom(clusterId, (err, zoom) => {
+              if (err) return;
+
+              map.easeTo({
+                center: features[0].geometry.coordinates as [number, number],
+                zoom: zoom as number,
+              });
+            });
+        });
+        setMap(map);
       });
 
       return () => map.remove();

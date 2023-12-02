@@ -6,15 +6,15 @@ const Navbar = () => {
       }
     >
       <div>
-        <h1 className="text-3xl  ">
+        <p className="text-3xl  ">
           🍻{" "}
           <span className={"hover:text-ascent font-normal text-white "}>
             Brest{" "}
           </span>
-          <span className="bg-gradient-to-r from-ascent to-gradient bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gradient to-ascent bg-clip-text text-transparent">
             bar
           </span>
-        </h1>
+        </p>
       </div>
       <button
         className={
