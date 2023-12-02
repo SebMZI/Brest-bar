@@ -108,7 +108,7 @@ export default function Home() {
                     name="rating"
                     id="rating"
                     className="mr-6 px-4 py-2 rounded-lg text-[#000000]"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => setNbStars(e.target.value)}
                   >
                     <option value="1">1+ &#9733;</option>
                     <option value="2">2+ &#9733;&#9733;</option>
